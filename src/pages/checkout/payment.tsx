@@ -1,5 +1,4 @@
 import { PaymentForm } from '../../components/PaymentForm/PaymentForm'
-import Home from '../index'
 
 import Image from 'next/image'
 
@@ -46,12 +45,6 @@ export default function Checkout() {
                 <div className={styles.paymentForm}>
                     <PaymentForm />
                 </div>
-
-                <p>
-                    <button type="button" className="blueButton">
-                        Finalizar pagamento
-                    </button>
-                </p>
             </section>
 
             <section className={styles.containerRight}>

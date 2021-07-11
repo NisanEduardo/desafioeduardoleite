@@ -1,0 +1,45 @@
+.paymentForm {
+
+    label {
+        display: block;
+        color: var( --labelColor );
+    }
+    
+    input {
+        display: block;
+        width: 100%;
+    
+        font-size: 1.25rem;
+        color: var( --labelColor );
+        font-family: 'DM Sans', sans-serif;
+    
+        padding: 15px 5px 20px;
+        border: none;
+        border-bottom: 1px solid var( --maskColor );
+    }
+    
+    select {
+        display: block;
+        width: 100%;
+    
+        font-size: 1.25rem;
+        color: var( --maskColor );
+        font-family: 'DM Sans', sans-serif;
+    
+        padding: 15px 0 20px;
+        border: none;
+        border-bottom: 1px solid var( --maskColor );
+    
+        option {
+            &:first-of-type { color: var( --maskColor ); }
+            color: var( --labelColor );
+        }
+    }
+
+}
+
+.errorMessage {
+    display: block;
+    margin-top: 10px;
+    color: var( --error );
+}
