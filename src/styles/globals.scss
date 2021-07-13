@@ -63,6 +63,7 @@ header.mainHeader {
     .backIcon {
         position: absolute;
         left: 134px;
+        cursor: pointer;
     }
 }
 
@@ -93,6 +94,7 @@ small,
     font-size: 21px;
     display: block;
     border-radius: 50px;
+    margin-bottom: 20px;
 
     display: block;
     width: 100%;

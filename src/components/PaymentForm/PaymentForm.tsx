@@ -1,43 +1,18 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useEffect } from 'react'
-import { useState } from 'react'
+
+import { useSubscription } from '../../contexts/SubscriptionContext'
 
 import formSchema from './paymentFormSchema'
 
 import styles from './styles.module.scss'
 
-interface FormValues {
-    offerId: number
-    userId: number
-    id: number
-    gateway: string
-}
-
 export function PaymentForm() {
 
-    const [ formValues, setFormValues ] = useState({
-        productoId: 18,
-        userId: 1,
-        id: 1,
-        gateway: 'iugu',
-    })
+    const { confirmPayment } = useSubscription()
 
-
-    function onSubmit(values, actions) {
-
-        setFormValues({
-            ...formValues,
-            ...values
-        })
-
+    async function onSubmit( values ) {
+        confirmPayment( values )
     }
-
-    useEffect( () => {
-
-        console.log( 'form values',  formValues )
-
-    }, [formValues])
-
 
     return (
         <div className={styles.paymentForm}>
@@ -69,6 +44,7 @@ export function PaymentForm() {
                                 name="creditCardNumber"
                                 id="creditCardNumber"
                                 placeholder="0000 0000 0000 0000"
+                                maxLength="16"
                             />
                             {errors.creditCardNumber && touched.creditCardNumber && (
                                 <span className={styles.errorMessage}>
@@ -134,6 +110,7 @@ export function PaymentForm() {
                                 name="creditCardCPF"
                                 id="creditCardCPF"
                                 placeholder="000.000.000-00"
+                                maxLength="11"
                             />
                             {errors.creditCardCPF && touched.creditCardCPF && (
                                 <span className={styles.errorMessage}>

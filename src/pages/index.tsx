@@ -35,8 +35,6 @@ export default function Home({ products }: ProductProps) {
 
     useEffect(() => {
 
-        console.log( 'offerId', offerId )
-
         const inputs = document.querySelectorAll('input')
 
         inputs.forEach(input => {
@@ -84,7 +82,7 @@ export default function Home({ products }: ProductProps) {
                     {
                         offerId !== 0 ? (
                             <p>
-                                <Link href="/checkout">
+                                <Link href="/checkout/payment">
                                     <a className="blueButton">
                                         Ir para pagamento
                                     </a>

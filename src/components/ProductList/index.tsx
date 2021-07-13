@@ -33,7 +33,15 @@ export function ProductItem( props: ProductItemProps ) {
                         type="checkbox"
                         value={props.product.id}
                         id={props.product.name}
-                        onChange={ () => { chooseSubscription( props.product.id ) } }
+                        onChange={ () => { chooseSubscription(
+                                props.product.id,
+                                props.product.title,
+                                props.product.description,
+                                props.product.bestPrice,
+                                props.product.installmentsValue,
+                                props.product.installments
+                            )}
+                        }
                     />
                 </p>
             </div>
