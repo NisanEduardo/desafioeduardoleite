@@ -12,6 +12,9 @@ interface SubscriptionContextData {
     bestPrice: string
     installments: string
     installmentsValue: string
+    formValues: {
+        creditCardCPF: string
+    }
     chooseSubscription: (productId: number, title: string, description: string, bestPrice: string, installments: string, installmentsValue: string ) => void 
     confirmPayment: ( values: object ) => void
 }
@@ -35,6 +38,7 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
         userId: 1,
         id: 1,
         gateway: 'iugu',
+        creditCardCPF: ''
     })
 
     const router = useRouter()
@@ -96,7 +100,8 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
                 bestPrice,
                 installments,
                 installmentsValue,
-                confirmPayment
+                confirmPayment,
+                formValues
             }}
         >
             { children }

@@ -2531,6 +2531,11 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+react-hook-form@^7.11.0:
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.11.0.tgz#9cae5e21ba1c1a98a40c65cfee07db9e677edc21"
+  integrity sha512-aJVvL5VV6JqUWvwx9fbrhc6La83aQAfXfqQr+TD/sWy3LPdqYBgBIHBt8WAKWzKRm3g29YV2CLfn4wkhNB9b+g==
+
 react-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
@@ -2553,6 +2558,13 @@ react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-number-format@^4.6.4:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.6.4.tgz#72534d62adee77eb959ba730fb4971cc770a164b"
+  integrity sha512-xHUtaN5wXBiFL4C2v2Sgn3Fut76UxHqJH3rzuVMwZvHZA8HkHtCZBvflvqAgmcEkFC2eoS27Iqpa0vNXrdt8GQ==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-refresh@0.8.3:
   version "0.8.3"

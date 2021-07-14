@@ -35,6 +35,8 @@ export default function Home({ products }: ProductProps) {
 
     useEffect(() => {
 
+        console.log( 'offerId', offerId )
+
         const inputs = document.querySelectorAll('input')
 
         inputs.forEach(input => {

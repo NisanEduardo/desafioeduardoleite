@@ -1,172 +1,202 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import InputMask from "react-input-mask";
+import { useForm, Controller } from "react-hook-form";
 
 import { useSubscription } from '../../contexts/SubscriptionContext'
-
-import formSchema from './paymentFormSchema'
 
 import styles from './styles.module.scss'
 
 export function PaymentForm() {
 
-    const { confirmPayment } = useSubscription()
+    const {
+        confirmPayment,
+        offerId,
+    } = useSubscription()
 
-    async function onSubmit( values ) {
-        confirmPayment( values )
+    const {
+        handleSubmit,
+        control,
+        formState: { errors }
+    } = useForm()
+
+
+    function onSubmit( data ) {
+
+        const formValues = { ...data, offerId }
+        
+        confirmPayment( formValues )
+
     }
+
 
     return (
         <div className={styles.paymentForm}>
-            <Formik
-                // validate={validate}
-                validationSchema={formSchema}
-                onSubmit={onSubmit}
-                initialValues={{
-                    creditCardNumber: '',
-                    creditCardExpirationDate: '',
-                    creditCardCVV: '',
-                    creditCardHolder: '',
-                    creditCardCPF: '',
-                    couponCode: '',
-                    installments: 0
-                }}
-            >
-                {({
-                    values,
-                    errors,
-                    touched,
-                    isValid
-                }) => (
-                    <Form>
-                        <div className="formGroup">
-                            <label htmlFor="creditCardNumber">Número do cartão</label>
-                            <Field
-                                type="text"
-                                name="creditCardNumber"
-                                id="creditCardNumber"
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="formGroup">
+                    <label htmlFor="creditCardNumber">Número do cartão</label>
+                    <Controller
+                        as={InputMask}
+                        control={control}
+                        name="creditCardNumber"
+                        id="creditCardNumber"
+                        type="tel"
+                        rules={{
+                            required: true,
+                            pattern: /[0-9]{16}/
+                        }}
+                        render={({ field }) => {
+                            return <InputMask
                                 placeholder="0000 0000 0000 0000"
-                                maxLength="16"
+                                mask="9999 9999 9999 9999"
+                                {...field}
+                                onChange={(e) => field.onChange(e.target.value.replace(/ /g, ''))}
                             />
-                            {errors.creditCardNumber && touched.creditCardNumber && (
-                                <span className={styles.errorMessage}>
-                                    <ErrorMessage name="creditCardNumber" />
-                                </span>
-                            )}
-                        </div>
+                        }}
+                    />
+                    {errors.creditCardNumber && errors.creditCardNumber.type === "required" && <span className={styles.errorMessage}>Campo obrigatório</span>}
+                    {errors.creditCardNumber && errors.creditCardNumber.type === "pattern" && <span className={styles.errorMessage}>Este campo necessita 16 dígitos</span>}
+                </div>
 
-                        <div className="formGroup twoCols">
-                            <div>
-                                <label htmlFor="creditCardExpirationDate">Validade</label>
-                                <Field
-                                    type="text"
-                                    name="creditCardExpirationDate"
-                                    id="creditCardExpirationDate"
+
+                <div className="formGroup twoCols">
+                    <div>
+                        <label htmlFor="creditCardExpirationDate">Validade</label>
+                        <Controller
+                            as={InputMask}
+                            control={control}
+                            name="creditCardExpirationDate"
+                            id="creditCardExpirationDate"
+                            type="text"
+                            rules={{
+                                required: true,
+                                pattern: /^(0[1-9]|1[0-2])\/\d{2}$/
+                            }}
+                            render={({ field }) => {
+                                return <InputMask
+                                    mask="99/99"
                                     placeholder="MM/AA"
-                                    maxLength="5"
+                                    {...field}
                                 />
-                                {errors.creditCardExpirationDate && touched.creditCardExpirationDate && (
-                                    <span className={styles.errorMessage}>
-                                        <ErrorMessage name="creditCardExpirationDate" />
-                                    </span>
-                                )}
-                            </div>
+                            }}
+                        />
+                        {errors.creditCardExpirationDate && errors.creditCardExpirationDate.type === "required" && <span className={styles.errorMessage}>Campo obrigatório</span>}
+                        {errors.creditCardExpirationDate && errors.creditCardExpirationDate.type === "pattern" && <span className={styles.errorMessage}>Insira uma data no formato MM/AA</span>}
+                    </div>
 
-                            <div>
-                                <label htmlFor="creditCardCVV">CVV</label>
-                                <Field
-                                    type="text"
-                                    name="creditCardCVV"
-                                    id="creditCardCVV"
+                    <div>
+                        <label htmlFor="creditCardCVV">CVV</label>
+                        <Controller
+                            as={InputMask}
+                            control={control}
+                            name="creditCardCVV"
+                            id="creditCardCVV"
+                            type="tel"
+                            rules={{
+                                required: true,
+                                pattern: /[0-9]{3}/
+                            }}
+                            render={({ field }) => {
+                                return <InputMask
                                     placeholder="000"
-                                    maxLength="3"
+                                    mask="999"
+                                    {...field}
                                 />
-                                {errors.creditCardCVV && touched.creditCardCVV && (
-                                    <span className={styles.errorMessage}>
-                                        <ErrorMessage name="creditCardCVV" />
-                                    </span>
-                                )}
-                            </div>
-                        </div>
+                            }}
+                        />
+                        {errors.creditCardCVV && errors.creditCardCVV.type === "required" && <span className={styles.errorMessage}>Campo obrigatório</span>}
+                        {errors.creditCardCVV && errors.creditCardCVV.type === "pattern" && <span className={styles.errorMessage}>Este campo necessita 3 dígitos</span>}
+                    </div>
+                </div>
 
-
-                        <div className="formGroup">
-                            <label htmlFor="creditCardHolder">Nome impresso no cartão</label>
-                            <Field
-                                type="text"
-                                name="creditCardHolder"
-                                id="creditCardHolder"
+                <div className="formGroup">
+                    <label htmlFor="creditCardHolder">Nome impresso no cartão</label>
+                    <Controller
+                        as={InputMask}
+                        control={control}
+                        name="creditCardHolder"
+                        id="creditCardHolder"
+                        type="text"
+                        rules={{
+                            required: true,
+                        }}
+                        render={({ field }) => {
+                            return <InputMask
                                 placeholder="Seu nome"
+                                {...field}
                             />
-                            {errors.creditCardHolder && touched.creditCardHolder && (
-                                <span className={styles.errorMessage}>
-                                    <ErrorMessage name="creditCardHolder" />
-                                </span>
-                            )}
-                        </div>
+                        }}
+                    />
+                    {errors.creditCardHolder && errors.creditCardHolder.type === "required" && <span className={styles.errorMessage}>Campo obrigatório</span>}
+                </div>
 
-                        <div className="formGroup">
-                            <label htmlFor="creditCardCPF">CPF</label>
-                            <Field
-                                type="text"
-                                name="creditCardCPF"
-                                id="creditCardCPF"
+
+                <div className="formGroup">
+                    <label htmlFor="creditCardCPF">CPF</label>
+                    <Controller
+                        as={InputMask}
+                        control={control}
+                        name="creditCardCPF"
+                        id="creditCardCPF"
+                        type="tel"
+                        rules={{
+                            required: true,
+                            pattern: /[0-9]{11}/
+                        }}
+                        render={({ field }) => {
+                            return <InputMask
                                 placeholder="000.000.000-00"
-                                maxLength="11"
+                                mask="999.999.999-99"
+                                {...field}
+                                onChange={(e) => field.onChange(e.target.value.replace(/\./g, '').replace(/-/g, ''))}
                             />
-                            {errors.creditCardCPF && touched.creditCardCPF && (
-                                <span className={styles.errorMessage}>
-                                    <ErrorMessage name="creditCardCPF" />
-                                </span>
-                            )}
-                        </div>
+                        }}
+                    />
+                    {errors.creditCardCPF && errors.creditCardCPF.type === "required" && <span className={styles.errorMessage}>Campo obrigatório</span>}
+                    {errors.creditCardCPF && errors.creditCardCPF.type === "pattern" && <span className={styles.errorMessage}>Este campo necessita 11 dígitos</span>}
+                </div>
 
-                        <div className="formGroup">
-                            <label htmlFor="couponCode">Cupom</label>
-                            <Field
-                                type="text"
-                                name="couponCode"
-                                id="couponCode"
+                <div className="formGroup">
+                    <label htmlFor="couponCode">Cupom</label>
+                    <Controller
+                        as={InputMask}
+                        control={control}
+                        name="couponCode"
+                        id="couponCode"
+                        type="text"
+                        rules={{
+                            required: false
+                        }}
+                        render={({ field }) => {
+                            return <InputMask
                                 placeholder="Insira aqui"
+                                {...field}
                             />
-                        </div>
+                        }}
+                    />
+                </div>
 
+                <div className="formGroup">
+                    <label htmlFor="installments">Número de parcelas</label>
+                    <select
+                        name="installments"
+                        id="installments"
+                        placeholder="Selecionar"
+                    >
+                        {
+                            offerId == 33 ?
+                                (
+                                    <option value="1" label="1" />
+                                ) :
+                                (
+                                    <option value="10" label="10" />
+                                )
+                        }
+                    </select>
+                </div>
 
-                        <div className="formGroup">
-                            <label htmlFor="installments">Número de parcelas</label>
-                            <Field as="select"
-                                name="installments"
-                                id="installments"
-                                value={values.installments}
-                                placeholder="Selecionar"
-                            // onChange={handleChange}
-                            >
-                                <option label="Selecionar" />
-                                <option value="1" label="1" />
-                                <option value="2" label="2" />
-                                <option value="3" label="3" />
-                                <option value="4" label="4" />
-                                <option value="5" label="5" />
-                                <option value="6" label="6" />
-                                <option value="7" label="7" />
-                                <option value="8" label="8" />
-                                <option value="9" label="9" />
-                                <option value="10" label="10" />
-                                <option value="11" label="11" />
-                                <option value="12" label="12" />
-                            </Field>
-                            {errors.installments && (
-                                <span className={styles.errorMessage}>
-                                    <ErrorMessage name="installments" />
-                                </span>
-                            )}
-                        </div>
-
-                        <button type="submit" className="blueButton" disabled={!isValid}>
-                            Finalizar pagamento
-                        </button>
-                    </Form>
-                )}
-            </Formik>
+                <button type="submit" className="blueButton">
+                    Finalizar pagamento
+                </button>
+            </form>
         </div>
-    )
-
+    );
 }

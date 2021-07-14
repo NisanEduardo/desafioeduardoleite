@@ -1,0 +1,83 @@
+.mainContent {
+    max-width: 360px;
+    margin: 50px auto 0;
+
+    header {
+        text-align: center;
+        margin-bottom: 70px;
+
+        h3 { font-weight: 400; color: var( --blue );}
+
+        p {
+            color: var( --maskColor );
+            max-width: 230px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.subscribeInfos {
+    padding: 20px 20px 30px;
+    box-shadow: 0px 0px 20px 0px rgba( 178, 178, 178, .15 );
+    border-radius: 15px;
+    margin-bottom: 100px;
+
+    .offerInfos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background-color: var(--maskColor);
+        padding: 20px;
+        border-radius: 15px;
+
+        .starIcon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            background-color: #babaca;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.offerInfosRight {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    p {
+        margin: 0;
+        font-weight: 400;
+        line-height: 1.7rem;
+        color: var( --blue );
+    }
+}
+
+.customerInfos {
+    padding: 20px;
+    
+    p {
+        & + p { margin-top: 20px; }
+
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            &:first-child {
+                color: var( --maskColor );
+            }
+        }
+    }
+}
+
+.footer {
+    p {
+        font-weight: 600;
+        text-align: center;
+    }
+}
