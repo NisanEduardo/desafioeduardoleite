@@ -1,6 +1,12 @@
 ## Getting Started
 
-First, run the development server:
+##Instalar dependências do projeto
+```
+yarn
+ou 
+npm install
+```
+Iniciar servidor local ( localhost:3000):
 
 ```bash
 npm run dev
