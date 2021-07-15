@@ -3,14 +3,14 @@
 ## Instalar dependências do projeto
 ```
 yarn
-ou 
+# ou 
 npm install
 ```
-Iniciar servidor local ( localhost:3000):
+## Iniciar servidor local ( localhost:3000):
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 ## Deploy on Vercel
