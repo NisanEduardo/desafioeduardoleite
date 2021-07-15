@@ -1,7 +1,7 @@
 # Getting Started
 
 ## Instalar dependências do projeto
-```
+```bash
 yarn
 # ou 
 npm install
