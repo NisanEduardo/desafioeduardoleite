@@ -43,7 +43,6 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
 
     const router = useRouter()
 
-
     function chooseSubscription (
         productId: number,
         title: string,
@@ -78,7 +77,7 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
 
             }
         } catch ( err ) {
-
+            alert( 'Não foi possível confirmar seu pagamento. Tente novamente mais tarde.' )
             console.error( 'Ocorreu um erro', err )
 
         }

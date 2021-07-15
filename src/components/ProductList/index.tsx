@@ -38,8 +38,8 @@ export function ProductItem( props: ProductItemProps ) {
                                 props.product.title,
                                 props.product.description,
                                 props.product.bestPrice,
+                                props.product.installments,
                                 props.product.installmentsValue,
-                                props.product.installments
                             )}
                         }
                     />

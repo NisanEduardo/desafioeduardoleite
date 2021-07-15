@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import { useSubscription } from '../../contexts/SubscriptionContext'
 
+import { BsCheck } from 'react-icons/bs'
+import { TiStarOutline } from 'react-icons/ti'
+
 import subscriptionSuccess from './subscriptionSuccess.module.scss'
+import { useEffect } from 'react'
 
 export default function SubscriptionSuccess() {
 
@@ -14,29 +18,51 @@ export default function SubscriptionSuccess() {
         formValues
     } = useSubscription()
 
+    useEffect( () => {
+        console.log({
+            title,
+            description,
+            bestPrice,
+            installments,
+            installmentsValue,
+            formValues
+        })
+    }, [])
+
+    const cpfFormat = ( value ) => {
+        value = value.replace(/[^\d]/g, '')
+
+        return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+
+    }
+
     return (
         <div className={subscriptionSuccess.mainContent}>
             <header>
-                <div className={subscriptionSuccess.successIcon}>V</div>
-                <h3>Parabéns!</h3>
+                <div className={subscriptionSuccess.successIcon}>
+                    <BsCheck style={{
+                        fontSize: "4rem"
+                    }} />
+                </div>
+                <h2>Parabéns!</h2>
                 <p>Sua assinatura foi realizada com sucesso.</p>
             </header>
 
-            <section className={ subscriptionSuccess.subscribeInfos }>
-                <div className={ subscriptionSuccess.offerInfos } >
-                    <div className={ subscriptionSuccess.offerInfosLeft }>
-                        <div className={ subscriptionSuccess.starIcon }>
-                            Ico
+            <section className={subscriptionSuccess.subscribeInfos}>
+                <div className={subscriptionSuccess.offerInfos} >
+                    <div className={subscriptionSuccess.offerInfosLeft}>
+                        <div className={subscriptionSuccess.starIcon}>
+                            <TiStarOutline style={{ fontSize: "2.5rem", opacity: ".9" }} />
                         </div>
                     </div>
 
-                    <div className={ subscriptionSuccess.offerInfosRight }>
-                        <p>{title}Anual | Parcelado{description}</p>
-                        <p>{bestPrice}R$ 479,90 | {installments}10x R$ 47,99{installmentsValue}</p>
+                    <div className={subscriptionSuccess.offerInfosRight}>
+                        <p>{title} | {description}</p>
+                        <p>{bestPrice} | {installments}x {installmentsValue}</p>
                     </div>
                 </div>
 
-                <div className={ subscriptionSuccess.customerInfos } >
+                <div className={subscriptionSuccess.customerInfos} >
                     <p>
                         <span>E-mail:</span>
                         <span>fulano@meuemail.com.br</span>
@@ -44,7 +70,7 @@ export default function SubscriptionSuccess() {
 
                     <p>
                         <span>CPF</span>
-                        <span>{formValues.creditCardCPF}000.000.000-00</span>
+                        <span>{ cpfFormat( formValues.creditCardCPF )}</span>
                     </p>
                 </div>
             </section>

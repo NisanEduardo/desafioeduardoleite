@@ -26,12 +26,17 @@ body {
     --white: #fff;
     --orange: #f5850b;
     --error: #e64343;
+    --lightPurpple: #c9c5d4;
 }
 
 .container {
     max-width: 1752px;
     padding: 40px 40px 0;
-    margin: 0 auto; 
+    margin: 0 auto;
+
+    @media screen and ( max-width: 768px ) {
+        padding: 20px 20px 0;
+    }
 }
 
 h1,
@@ -39,10 +44,17 @@ h2,
 h3,
 h4 {
     margin: 20px 0;
+    color: var( --blue );
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
 }
 
 h2 {
     font-size: 2.375rem;
+
+    @media screen and ( max-width: 768px ) {
+        font-size: 1.25rem;
+    }
 }
 
 a {
@@ -64,6 +76,10 @@ header.mainHeader {
         position: absolute;
         left: 134px;
         cursor: pointer;
+
+        @media screen and ( max-width: 768px ) {
+            left: 0;
+        }
     }
 }
 
@@ -91,7 +107,7 @@ small,
     color: var( --white );
 
     padding: 35px 0;
-    font-size: 21px;
+    font-size: 1.3125rem;
     display: block;
     text-align: center;
     border-radius: 50px;
@@ -106,5 +122,10 @@ small,
 
     &:hover {
         filter: brightness(.7);
+    }
+
+    @media screen and ( max-width: 768px ) {
+        padding: 15px 0;
+        font-size: .875rem;
     }
 }

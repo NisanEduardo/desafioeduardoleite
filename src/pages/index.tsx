@@ -70,8 +70,6 @@ export default function Home({ products }: ProductProps) {
                     products.map(product => <ProductItem key={product.id} product={product} />)
                 }
 
-
-
                 <footer className={styles.productListFooter}>
                     <p>
                         <a>Sobre a cobrança <FaRegQuestionCircle fontSize="20px" />

@@ -7,6 +7,7 @@
 
         h2 {
             font-weight: 400;
+            color: var( --mainColor );
         }
 
         p {
@@ -21,6 +22,14 @@
     }
 
     article + article { margin-top: 24px; }
+
+    @media screen and ( max-width: 768px ) {
+        margin-top: 20px;
+
+        header {
+            margin-bottom: 30px;
+        }
+    }
 }
 
 
@@ -34,6 +43,10 @@
 
         a {
             cursor: pointer;
+
+            @media screen and ( max-width: 768px ) {
+                font-size: .875rem;
+            }
 
             svg {
                 margin-left: 25px;
@@ -58,6 +71,11 @@
                 transform: translate(-50%, 0);
 
                 transition: all .2s ease-in-out;
+
+                @media screen and ( max-width: 768px ) {
+                    min-width: 100%;
+                    font-size: .875rem;
+                }
             }
 
             &:hover {
@@ -67,6 +85,10 @@
                     z-index: 1;
                 }
             }
+        }
+
+        @media screen and ( max-width: 768px ) {
+            margin-top: 30px;
         }
     }
 }

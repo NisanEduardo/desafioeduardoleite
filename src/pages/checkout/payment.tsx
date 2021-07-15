@@ -1,4 +1,5 @@
 import { PaymentForm } from '../../components/PaymentForm/PaymentForm'
+import { ProductItem } from '../../components/ProductList'
 
 import Image from 'next/image'
 
@@ -45,9 +46,6 @@ export default function Checkout() {
                 <div className={styles.paymentForm}>
                     <PaymentForm />
                 </div>
-            </section>
-
-            <section className={styles.containerRight}>
             </section>
         </div>
     )

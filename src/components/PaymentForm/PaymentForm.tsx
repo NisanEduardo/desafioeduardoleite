@@ -187,7 +187,7 @@ export function PaymentForm() {
                                     <option value="1" label="1" />
                                 ) :
                                 (
-                                    <option value="10" label="10" />
+                                    <option value="10" label="12" />
                                 )
                         }
                     </select>
