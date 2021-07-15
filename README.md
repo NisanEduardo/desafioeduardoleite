@@ -1,6 +1,6 @@
-## Getting Started
+# Getting Started
 
-##Instalar dependências do projeto
+## Instalar dependências do projeto
 ```
 yarn
 ou 
