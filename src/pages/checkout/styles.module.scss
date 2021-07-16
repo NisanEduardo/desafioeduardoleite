@@ -1,14 +1,26 @@
-.containerLeft {
-    width: 663px;
-    margin-top: 50px;
+.mainContent {
+    width: 660px;
+    margin: 50px auto;
 
     header {
         h2 {
             font-weight: 400;
+            color: var( --mainColor );
         }
 
         p {
             font-size: 1.75rem;
+        }
+    }
+
+    @media screen and ( max-width: 768px ) {
+        width: 100%;
+        margin-top: 20px;
+
+        header {
+            p {
+                font-size: .875rem;
+            }
         }
     }
 }
@@ -23,6 +35,21 @@
             display: inline-block;
             margin: 0 15px;
         }
+
+        @media screen and ( max-width: 768px ) {
+            margin-top: 10px;
+            margin-bottom: 0px;
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                margin: 5px 0;
+                padding: 0 5px;
+                max-width: 20%;
+            }
+        }
     }
 
     small {
@@ -34,6 +61,11 @@
         margin-bottom: 60px;
 
         > div { margin-left: 15px !important; }
+
+        @media screen and ( max-width: 768px ) {
+            margin-bottom: 30px;
+            justify-content: start;
+        }
 
     }
 }

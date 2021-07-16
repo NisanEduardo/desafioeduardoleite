@@ -57,8 +57,8 @@ export default function SubscriptionSuccess() {
                     </div>
 
                     <div className={subscriptionSuccess.offerInfosRight}>
-                        <p>{title} | {description}</p>
-                        <p>{bestPrice} | {installments}x {installmentsValue}</p>
+                        <p><span>{title}</span> <span>{description}</span></p>
+                        <p><span>{bestPrice}</span> <span>{installments}x {installmentsValue}</span></p>
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@ export default function SubscriptionSuccess() {
                 <p>
                     <Link href="/">
                         <a className="blueButton">
-                            Ir para a home
+                            IR PARA A HOME
                         </a>
                     </Link>
                 </p>

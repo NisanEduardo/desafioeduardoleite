@@ -36,6 +36,17 @@
         }
     }
 
+    @media screen and ( max-width: 768px ) {
+        input {
+            padding: 10px 5px 10px;
+            font-size: 14px;
+        }
+
+        select {
+            padding: 10px 0 10px;
+        }
+    }
+
 }
 
 .errorMessage {

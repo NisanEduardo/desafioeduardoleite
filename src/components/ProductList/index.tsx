@@ -23,7 +23,7 @@ export function ProductItem( props: ProductItemProps ) {
 
     return (
         <article key={props.product.id} className={styles.productListItem}>
-            <h3>{props.product.title}  |  {props.product.description}</h3>
+            <h3><span>{props.product.title}</span><span>{props.product.description}</span></h3>
             <div className={styles.pricesDescription} >
                 <p>
                     <span className={styles.listPrice}>De {props.product.listPrice} </span>

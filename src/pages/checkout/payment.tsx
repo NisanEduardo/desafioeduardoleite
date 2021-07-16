@@ -16,7 +16,7 @@ export default function Checkout() {
 
     return (
         <div className={ styles.wrapperContainers }>
-            <section className={styles.containerLeft}>
+            <section className={styles.mainContent}>
                 <header>
                     <h2>Estamos quase lá!</h2>
                     <p>Insira seus dados de pagamento abaixo:</p>

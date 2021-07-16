@@ -7,6 +7,33 @@
         margin: 0 0 20px;
         color: var(--blue);
         font-size: 1.25rem;
+        font-weight: 600;
+
+        span {
+            &:first-child {
+                margin-right: 15px;
+                position: relative;
+                display: inline-block;
+
+                &::after {
+                    content: "";
+                    width: 3px;
+                    position: absolute;
+                    right: -17px;
+                    height: 70%;
+                    background-color: var(--blue);
+                    top: 3px;
+
+                    @media screen and (max-width: 768px) {
+                        width: 2px;
+                    }
+                }
+            }
+
+            &:last-child {
+                margin-left: 15px;
+            }
+        }
     }
 
     p {
@@ -44,7 +71,7 @@
                 }
 
                 &.listPrice {
-                    margin-right: 17px;
+                    margin-right: 13px;
                     position: relative;
                     display: inline-block;
 
@@ -54,12 +81,12 @@
                         height: 100%;
                         background-color: var(--blue);
                         position: absolute;
-                        right: -17px;
+                        right: -14px;
                     }
                 }
 
                 &.bestPrice {
-                    margin-left: 17px;
+                    margin-left: 13px;
                 }
             }
 
