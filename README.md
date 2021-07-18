@@ -32,7 +32,7 @@ O formulário conta com algumas validações, tanto de existência dos dados qua
 O campo de "Número de parcelas" é preenchido automaticamente baseado no tipo de plano que o usuário escolheu "À vista ou Parcelado"
 
 ### Tela de sucesso
-O formulário sendo submetido com sucesso, o usuário será automaticamente redirecionado para a tela de sucesso, informando seus dados e os dados do plano escolhi
+O formulário sendo submetido com sucesso, o usuário será automaticamente redirecionado para a tela de sucesso, informando seus dados e os dados do plano escolhido
 
 
 
