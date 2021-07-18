@@ -20,13 +20,9 @@ export function PaymentForm() {
 
 
     function onSubmit( data ) {
-
         const formValues = { ...data, offerId }
-        
         confirmPayment( formValues )
-
     }
-
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={ styles.paymentForm } role="form">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createContext, ReactNode, useContext } from "react";
 
 import { api } from '../services/api'
@@ -46,6 +46,7 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
 
     const router = useRouter()
 
+    // get values about signature choosed 
     function chooseSubscription (
         productId: number,
         title: string,
@@ -63,10 +64,12 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
         setInstallmentsValue( installmentsValue )
     }
 
+    // show "go to payment button"
     function handleBtnGoPaymentStatus() {
         setBtnIsVisible( true )
     }
 
+    // set form values and post on database
     async function confirmPayment(values) {
 
         setFormValues({
@@ -77,25 +80,16 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
         try {
             const response = await api.post( '/subscription', formValues )
 
-            console.log( 'response', response )
-
             if( response.status == 200 ) {
-
                 router.push('subscriptionSuccess')
-
             }
+
         } catch ( err ) {
             alert( 'Não foi possível confirmar seu pagamento. Tente novamente mais tarde.' )
             console.error( 'Ocorreu um erro', err )
 
         }
     }
-
-    useEffect( () => {
-
-        console.log( 'form values',  formValues )
-
-    }, [formValues])
 
     return (
         <SubscriptionContext.Provider

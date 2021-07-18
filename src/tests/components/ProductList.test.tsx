@@ -1,8 +1,5 @@
 import { screen, render } from "@testing-library/react"
-import userEvent from '@testing-library/user-event'
-
 import { ProductItem } from '../../components/ProductList'
-import Home from "../../pages"
 
 const product = {
     id: 22,
@@ -15,31 +12,6 @@ const product = {
     installmentsValue: "R$ 45,00",
     name: "Fake name",
 }
-
-const products = [
-    {
-        id: 22,
-        title: "fake title",
-        description: "fake description",
-        listPrice: "R$ 6450,00",
-        bestPrice: "R$ 3000,00",
-        save: "15",
-        installments: "12",
-        installmentsValue: "R$ 45,00",
-        name: "Fake name",
-    },
-    {
-        id: 22,
-        title: "fake title",
-        description: "fake description",
-        listPrice: "R$ 6450,00",
-        bestPrice: "R$ 3000,00",
-        save: "15",
-        installments: "12",
-        installmentsValue: "R$ 45,00",
-        name: "Fake name",
-    }
-]
 
 
 describe('Product List', () => {

@@ -1,15 +1,18 @@
-import { render, fireEvent, screen } from '@testing-library/react'
-import { act } from 'react-dom/test-utils'
+import { render, fireEvent, screen, act } from '@testing-library/react'
 
 import { PaymentForm } from '../../components/PaymentForm'
+import { useRouter } from 'next/router'
+import { mocked } from 'ts-jest/utils'
 
-describe( 'Payment Form', ()  => {
+jest.mock('next/router')
+
+describe('Payment Form', () => {
 
     it('should render payment form', () => {
 
         render(<PaymentForm />)
 
-        expect(screen.getByRole( 'form' ) ).toBeInTheDocument()
+        expect(screen.getByRole('form')).toBeInTheDocument()
     })
 
 })

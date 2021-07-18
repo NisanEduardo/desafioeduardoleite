@@ -31,11 +31,10 @@ export function ProductItem( props: ProductItemProps ) {
                     <span className={styles.bestPrice}>Por {props.product.bestPrice}</span>
                     <span className={styles.savePrice}> -{props.product.save}%</span>
                     <input
-                        placeholder={props.product.name}
+                        role="button"
                         type="checkbox"
                         value={props.product.id}
                         id={props.product.name}
-                        data-testid={props.product.name}
                         onChange={ () => {
                             chooseSubscription(
                                 props.product.id,

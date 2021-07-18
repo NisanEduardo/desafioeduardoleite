@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import { ProductItem } from '../components/ProductList'
 import { useSubscription } from '../contexts/SubscriptionContext'
@@ -34,19 +34,15 @@ export default function Home({ products }: ProductProps) {
         btnIsVisible
     } = useSubscription()
 
-
     useEffect(() => {
 
-        console.log( 'offerId', offerId )
-
+        // loop around inputs and unckecking who not is the choosed signature
         const inputs = document.querySelectorAll('input')
 
         inputs.forEach(input => {
 
             if ( Number( input.value ) != offerId) {
-
                 input.checked = false
-
             }
 
         })
@@ -56,7 +52,7 @@ export default function Home({ products }: ProductProps) {
     return (
         <>
             <Head>
-                <title>Desafio Eduardo Leite</title>
+                <title>Home</title>
             </Head>
             <section className={styles.mainContent}>
                 <header>
@@ -85,7 +81,7 @@ export default function Home({ products }: ProductProps) {
                         btnIsVisible ? (
                             <p>
                                 <Link href="/checkout/payment">
-                                    <a className="blueButton">
+                                    <a className="blueButton" role="teste">
                                         Ir para pagamento
                                     </a>
                                 </Link>

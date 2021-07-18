@@ -74,20 +74,22 @@ header.mainHeader {
     align-items: center;
     position: relative;
 
-    .backIcon {
-        position: absolute;
-        left: 134px;
-        cursor: pointer;
-
-        @media screen and ( max-width: 768px ) {
-            left: 0;
-        }
-    }
-
     @media screen and ( max-width: 768px ) {
         h1 {
             max-width: 60px;
         }
+    }
+}
+
+.backIcon {
+    position: absolute;
+    left: 134px;
+    cursor: pointer;
+    top: 70px;
+
+    @media screen and ( max-width: 768px ) {
+        left: 0;
+        top: 45px;
     }
 }
 
