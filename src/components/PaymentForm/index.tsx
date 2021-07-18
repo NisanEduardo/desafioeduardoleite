@@ -19,27 +19,27 @@ export function PaymentForm() {
     } = useForm()
 
 
-    function onSubmit( data ) {
+    function onSubmit(data) {
         const formValues = { ...data, offerId }
-        confirmPayment( formValues )
+        confirmPayment(formValues)
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className={ styles.paymentForm } role="form">
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.paymentForm} role="form">
             <div className="formGroup">
                 <label htmlFor="creditCardNumber">Número do cartão</label>
                 <Controller
-                    as={InputMask}
                     control={control}
                     name="creditCardNumber"
-                    id="creditCardNumber"
-                    type="tel"
                     rules={{
                         required: true,
                         pattern: /[0-9]{16}/
                     }}
                     render={({ field }) => {
                         return <InputMask
+                            name="creditCardNumber"
+                            type="tel"
+                            id="creditCardNumber"
                             placeholder="0000 0000 0000 0000"
                             mask="9999 9999 9999 9999"
                             {...field}
@@ -56,17 +56,17 @@ export function PaymentForm() {
                 <div>
                     <label htmlFor="creditCardExpirationDate">Validade</label>
                     <Controller
-                        as={InputMask}
                         control={control}
                         name="creditCardExpirationDate"
-                        id="creditCardExpirationDate"
-                        type="text"
                         rules={{
                             required: true,
                             pattern: /^(0[1-9]|1[0-2])\/\d{2}$/
                         }}
                         render={({ field }) => {
                             return <InputMask
+                                type="text"
+                                name="creditCardExpirationDate"
+                                id="creditCardExpirationDate"
                                 mask="99/99"
                                 placeholder="MM/AA"
                                 {...field}
@@ -80,17 +80,17 @@ export function PaymentForm() {
                 <div>
                     <label htmlFor="creditCardCVV">CVV</label>
                     <Controller
-                        as={InputMask}
-                        control={control}
                         name="creditCardCVV"
-                        id="creditCardCVV"
-                        type="tel"
+                        control={control}
                         rules={{
                             required: true,
                             pattern: /[0-9]{3}/
                         }}
                         render={({ field }) => {
                             return <InputMask
+                                name="creditCardCVV"
+                                id="creditCardCVV"
+                                type="tel"
                                 placeholder="000"
                                 mask="999"
                                 {...field}
@@ -105,16 +105,16 @@ export function PaymentForm() {
             <div className="formGroup">
                 <label htmlFor="creditCardHolder">Nome impresso no cartão</label>
                 <Controller
-                    as={InputMask}
                     control={control}
                     name="creditCardHolder"
-                    id="creditCardHolder"
-                    type="text"
                     rules={{
                         required: true,
                     }}
                     render={({ field }) => {
                         return <InputMask
+                            name="creditCardHolder"
+                            id="creditCardHolder"
+                            type="text"
                             placeholder="Seu nome"
                             {...field}
                         />
@@ -127,17 +127,17 @@ export function PaymentForm() {
             <div className="formGroup">
                 <label htmlFor="creditCardCPF">CPF</label>
                 <Controller
-                    as={InputMask}
                     control={control}
                     name="creditCardCPF"
-                    id="creditCardCPF"
-                    type="tel"
                     rules={{
                         required: true,
                         pattern: /[0-9]{11}/
                     }}
                     render={({ field }) => {
                         return <InputMask
+                            name="creditCardCPF"
+                            id="creditCardCPF"
+                            type="tel"
                             placeholder="000.000.000-00"
                             mask="999.999.999-99"
                             {...field}
@@ -152,16 +152,16 @@ export function PaymentForm() {
             <div className="formGroup">
                 <label htmlFor="couponCode">Cupom</label>
                 <Controller
-                    as={InputMask}
                     control={control}
                     name="couponCode"
-                    id="couponCode"
-                    type="text"
                     rules={{
                         required: false
                     }}
                     render={({ field }) => {
                         return <InputMask
+                            name="couponCode"
+                            id="couponCode"
+                            type="text"
                             placeholder="Insira aqui"
                             {...field}
                         />
