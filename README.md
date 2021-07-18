@@ -14,6 +14,14 @@ npm run dev
 yarn dev
 ```
 
+## Rodar testes unitários:
+
+```bash
+npm run test
+# ou
+yarn test
+```
+
 ## Fluxo de atividade:
 ### Tela de Planos
 O usuário escolherá qual plano gostaria de aderir
