@@ -1,4 +1,4 @@
-import { PaymentForm } from '../../components/PaymentForm/PaymentForm'
+import { PaymentForm } from '../../components/PaymentForm'
 import { ProductItem } from '../../components/ProductList'
 
 import Image from 'next/image'

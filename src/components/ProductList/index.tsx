@@ -18,7 +18,8 @@ interface ProductItemProps {
 
 export function ProductItem( props: ProductItemProps ) {
     const {
-        chooseSubscription
+        chooseSubscription,
+        handleBtnGoPaymentStatus,
     } = useSubscription()
 
     return (
@@ -30,18 +31,23 @@ export function ProductItem( props: ProductItemProps ) {
                     <span className={styles.bestPrice}>Por {props.product.bestPrice}</span>
                     <span className={styles.savePrice}> -{props.product.save}%</span>
                     <input
+                        placeholder={props.product.name}
                         type="checkbox"
                         value={props.product.id}
                         id={props.product.name}
-                        onChange={ () => { chooseSubscription(
+                        data-testid={props.product.name}
+                        onChange={ () => {
+                            chooseSubscription(
                                 props.product.id,
                                 props.product.title,
                                 props.product.description,
                                 props.product.bestPrice,
                                 props.product.installments,
-                                props.product.installmentsValue,
-                            )}
-                        }
+                                props.product.installmentsValue
+                            )
+
+                            handleBtnGoPaymentStatus()
+                        }}
                     />
                 </p>
             </div>

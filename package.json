@@ -1,28 +1,39 @@
 {
-  "name": "desafioeduardoleite",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "next": "11.0.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-hook-form": "^7.11.0",
-    "react-icons": "^4.2.0",
-    "react-input-mask": "^2.0.4",
-    "yup": "^0.32.9"
-  },
-  "devDependencies": {
-    "@types/react": "^17.0.14",
-    "eslint": "7.30.0",
-    "eslint-config-next": "11.0.1",
-    "sass": "^1.35.2",
-    "typescript": "^4.3.5"
-  }
+    "name": "desafioeduardoleite",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@testing-library/user-event": "^13.2.0",
+        "@types/react-dom": "^17.0.9",
+        "axios": "^0.21.1",
+        "next": "11.0.1",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-hook-form": "^7.11.0",
+        "react-icons": "^4.2.0",
+        "react-input-mask": "^2.0.4",
+        "yup": "^0.32.9"
+    },
+    "devDependencies": {
+        "@testing-library/dom": "^8.1.0",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^12.0.0",
+        "@types/react": "^17.0.14",
+        "babel-jest": "^27.0.6",
+        "eslint": "7.30.0",
+        "eslint-config-next": "11.0.1",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^27.0.6",
+        "jest-dom": "^4.0.0",
+        "sass": "^1.35.2",
+        "ts-jest": "^27.0.3",
+        "typescript": "^4.3.5"
+    }
 }

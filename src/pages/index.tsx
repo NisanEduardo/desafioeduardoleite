@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { ProductItem } from '../components/ProductList'
 import { useSubscription } from '../contexts/SubscriptionContext'
@@ -29,8 +29,10 @@ interface ProductProps {
 }
 
 export default function Home({ products }: ProductProps) {
-
-    const { offerId } = useSubscription()
+    const {
+        offerId,
+        btnIsVisible
+    } = useSubscription()
 
 
     useEffect(() => {
@@ -80,7 +82,7 @@ export default function Home({ products }: ProductProps) {
                     </p>
 
                     {
-                        offerId !== 0 ? (
+                        btnIsVisible ? (
                             <p>
                                 <Link href="/checkout/payment">
                                     <a className="blueButton">

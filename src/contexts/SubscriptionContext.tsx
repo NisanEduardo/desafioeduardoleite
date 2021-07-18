@@ -12,11 +12,13 @@ interface SubscriptionContextData {
     bestPrice: string
     installments: string
     installmentsValue: string
+    btnIsVisible: boolean
     formValues: {
         creditCardCPF: string
     }
     chooseSubscription: (productId: number, title: string, description: string, bestPrice: string, installments: string, installmentsValue: string ) => void 
     confirmPayment: ( values: object ) => void
+    handleBtnGoPaymentStatus: () => void
 }
 
 interface SubscriptionProviderProps {
@@ -32,6 +34,7 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
     const [ bestPrice, setBestPrice ] = useState( "" )
     const [ installments, setInstallments ] = useState( "" )
     const [ installmentsValue, setInstallmentsValue ] = useState( "" )
+    const [ btnIsVisible, setBtnIsVisible ] = useState(false)
 
     const [ formValues, setFormValues ] = useState({
         offerId,
@@ -49,7 +52,8 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
         description: string,
         bestPrice: string,
         installments: string,
-        installmentsValue: string ) {
+        installmentsValue: string
+    ) {
 
         setOfferId( productId )
         setTitle( title )
@@ -57,6 +61,10 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
         setBestPrice( bestPrice )
         setInstallments( installments)
         setInstallmentsValue( installmentsValue )
+    }
+
+    function handleBtnGoPaymentStatus() {
+        setBtnIsVisible( true )
     }
 
     async function confirmPayment(values) {
@@ -93,12 +101,14 @@ export function SubscriptionContextProvider({ children }: SubscriptionProviderPr
         <SubscriptionContext.Provider
             value={{
                 chooseSubscription,
+                handleBtnGoPaymentStatus,
                 offerId,
                 title,
                 description,
                 bestPrice,
                 installments,
                 installmentsValue,
+                btnIsVisible,
                 confirmPayment,
                 formValues
             }}
