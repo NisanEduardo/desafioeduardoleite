@@ -1,5 +1,5 @@
 # Link do desafio no vercel
----> [Desafio FrontEnd Eduardo Leite](https://desafioeduardoleite.vercel.app/)
+---> [desafioeduardoleite.vercel.app](https://desafioeduardoleite.vercel.app/)
 
 ## Instalar dependências do projeto
 ```bash
